@@ -18,40 +18,32 @@ Download latest fancymap.js and include it into your page:
 
 API
 =======
->[put](#put),
->[get](#get),
->[getByIndex](#getByIndex),
->[has](#has),
->[getKeys](#getKeys),
->[getKeyIndex](#getKeyIndex),
->[getKeysByVal](#getKeysByVal),
->[putAll](#putAll),
->[each](#each),
->[size](#size),
->[remove](#remove),
->[clean](#clean)
 
 
-### put()<span id="put"></span>
-Put any type of content into the map, even a 'null' or an 'undefined' is acceptable:
+### basic
+Get window object by selector:
 
-        var map = new FancyMap();
-        map.put('a', 1);
-        map.put('b', 2);
-        map.put('c', null);
-        map.put('d', 'hello');
-        map.put('e', undefined);
+        $.crosspage.getWin("top");
+        $.crosspage.getWin("parent");
+        $.crosspage.getWin("self");
+        $.crosspage.getWin("//");
+        $.crosspage.getWin("./");
+        $.crosspage.getWin("../");
+        $.crosspage.getWin("../../");		
+        $.crosspage.getWin("#1b -> #2a -> #3b -> #4a");
         
-        alert(map.size());//alert is 5
-        alert(map.has('c'));//alert is true
-
-Content with a duplicated key will be replaced by the last one:
-
-        var map = new FancyMap();
-        map.put('a', 1);
-        map.put('b', 2);
-        map.put('a', 3);//<--duplicate
         
-        alert(map.get('a'));//alert is 3
+        $.crosspage.getWin({ 
+                from: "../"
+                ,page: "#1b -> #2a -> #3b -> #4a"
+        });				
+        $.crosspage.getWin({ 
+                from: "//"
+                ,page: "#1b -> #2a -> #3b -> #4a"
+        });
+        $.crosspage.getWin({ 
+                from: "top"
+                ,page: "#1b -> #2a -> #3b -> #4a"
+        });
 
 
