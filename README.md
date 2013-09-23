@@ -1,6 +1,6 @@
 About
 =======
-CrossPage is light javascript util focusing on iframe access.
+CrossPage is light javascript util focusing on accessing between nested iframes.
 
 Browser Support: IE6+, FireFox, Chrome, Opera, Safari and more.
 
@@ -45,5 +45,28 @@ Get window object by selector:
                 from: "top"
                 ,page: "#1b -> #2a -> #3b -> #4a"
         });
-
+        
+Get an <frame> object by selector:
+        
+        $.crosspage.getFrame("parent");
+        $.crosspage.getFrame("self");
+        $.crosspage.getFrame("//");
+        $.crosspage.getFrame("./");
+        $.crosspage.getFrame("../");
+        $.crosspage.getFrame("../../");		
+        $.crosspage.getFrame("#1b -> #2a -> #3b -> #4a");
+        
+                
+        $.crosspage.getFrame({ 
+                from: "../"
+                ,page: "#1b -> #2a -> #3b -> #4a"
+        });				
+        $.crosspage.getFrame({ 
+                from: "//"
+                ,page: "#1b -> #2a -> #3b -> #4a"
+        });
+        $.crosspage.getFrame({ 
+                from: "top"
+                ,page: "#1b -> #2a -> #3b -> #4a"
+        });
 
