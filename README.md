@@ -11,7 +11,7 @@ MIT: [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.
 
 How to use:
 =======
-Download latest fancymap.js and include it into your page:
+Download latest code and include it into your pages:
 
         <script src="/crosspage-latest.min.js"></script>
 
