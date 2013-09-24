@@ -20,7 +20,7 @@ API
 =======
 
 
-### basic
+### Query
 Get window object by selector:
 
         $.crosspage.getWin("top");
@@ -70,6 +70,8 @@ Get an iframe object by selector from assigned iframe:
                 ,page: "#1b -> #2a -> #3b -> #4a"
         });
 
+### Run
+
 Implement a method in assigned iframe:
 
         $.crosspage.run({page: '../', iframe:'#right -> #north'}, 'saveUser', userData);
@@ -84,6 +86,9 @@ Implement a method in assigned iframe:
                 , userData
         );
         
+        
+### Broadcast
+
 Broadcast event between iframes:
 
 1, bind event handles in each local pages:
@@ -98,6 +103,9 @@ Broadcast event between iframes:
 
 3, broadcast(trigger) an event to frames:
 
-        $.crosspage.broadcast('myEvent');//all iframes including 'top' will trigger this event
-        $.crosspage.broadcast({page: '../', iframe:'#right -> #north'}, 'myEvent');//trigger this event begin from an assigned iframe
+        //all iframes including 'top' will trigger this event
+        $.crosspage.broadcast('myEvent');
+        
+        //trigger this event begin from an assigned iframe
+        $.crosspage.broadcast({page: '../', iframe:'#right -> #north'}, 'myEvent');
 
