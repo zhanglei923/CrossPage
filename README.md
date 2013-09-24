@@ -34,16 +34,16 @@ Get window object by selector:
         
         
         $.crosspage.getWin({ 
-                from: "../"
-                ,page: "#1b -> #2a -> #3b -> #4a"
+                page: "../"
+                ,iframe: "#1b -> #2a -> #3b -> #4a"
         });				
         $.crosspage.getWin({ 
-                from: "//"
-                ,page: "#1b -> #2a -> #3b -> #4a"
+                page: "//"
+                ,iframe: "#1b -> #2a -> #3b -> #4a"
         });
         $.crosspage.getWin({ 
-                from: "top"
-                ,page: "#1b -> #2a -> #3b -> #4a"
+                page: "top"
+                ,iframe: "#1b -> #2a -> #3b -> #4a"
         });
         
 Get an iframe object by selector from assigned iframe:
@@ -58,16 +58,16 @@ Get an iframe object by selector from assigned iframe:
         
                 
         $.crosspage.getFrame({ 
-                from: "../"
-                ,page: "#1b -> #2a -> #3b -> #4a"
+                page: "../"
+                ,iframe: "#1b -> #2a -> #3b -> #4a"
         });				
         $.crosspage.getFrame({ 
-                from: "//"
-                ,page: "#1b -> #2a -> #3b -> #4a"
+                page: "//"
+                ,iframe: "#1b -> #2a -> #3b -> #4a"
         });
         $.crosspage.getFrame({ 
-                from: "top"
-                ,page: "#1b -> #2a -> #3b -> #4a"
+                page: "top"
+                ,iframe: "#1b -> #2a -> #3b -> #4a"
         });
 
 ### Run
@@ -78,7 +78,7 @@ Implement a method in assigned iframe:
         $.crosspage.run({page: '../', iframe:'#right -> #middle'}, 'util.saveUser', userData);
         $.crosspage.run({
                         page: '../'
-                        ,iframe:'#right -> #south'
+                        ,iframe: '#right -> #south'
                         ,pluginQuery: "#usergrid"
                         ,pluginRole: "datagrid"
                         ,pluginFnName: "appendRow"
