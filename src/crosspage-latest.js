@@ -1,7 +1,7 @@
 /* 
- * CrossPage 0.1
+ * CrossPage 0.2
  * https://github.com/zhanglei923/CrossPage/
- * Date: 2013-09-23 
+ * Date: 2013-09-24 
  * 
  * Copyright (c) 2013 ZhangLei
  * 
@@ -79,8 +79,8 @@
 			return getFrameByWin(win);
 		}
 		if(getSelType(sel) == MIX_TYPE){//mixed
-			var con = sel.from;
-			var page = sel.page;
+			var con = sel.page;
+			var page = sel.iframe;
 			if(!con)con = 'self'
 			var win = getWinOld(con, page);
 			return getFrameByWin(win); 
@@ -93,16 +93,22 @@
 		if(typeof sel == 'string')sel = $.trim(sel);
 		
 		if(getSelType(sel) == CONT_TYPE){//container
-			return getContainerWin(sel);
+			var win = getContainerWin(sel);
+			if(!win) throw 'can not find iframe window: "'+sel+'"';
+			return win;
 		}
 		if(getSelType(sel) == CHILD_TYPE){//child
-			return getChildWin(sel);
+			var win = getChildWin(sel);
+			if(!win) throw 'can not find iframe window: "'+sel+'"';
+			return win;
 		}
 		if(getSelType(sel) == MIX_TYPE){//mixed
-			var con = sel.from;
-			var page = sel.page;
-			if(!con)con = 'self'
-			return getWinOld(con, page);
+			var con = sel.page;
+			var page = sel.iframe;
+			if(!con)con = 'self';
+			var win = getWinOld(con, page);
+			if(!win) throw 'can not find iframe window at page:"'+con+'", iframe:"'+page+'"';
+			return win;
 		}
 	}
 	var CONT_TYPE = 'CON';
@@ -136,6 +142,35 @@
 	};
 	var run = function (sel, fname){
 		var args = arguments;
+		var win = getWin(sel);
+		return (win.jQuery[NAMESPACE].runFn)(sel, args);
+	};
+	var runFn = function (sel, args){
+		if(sel.pluginQuery){
+			return runAsPlugin(sel, args);
+		}else{
+			return runAsEval(sel, args);
+		}
+	};
+	me.runFn = runFn;
+	
+	var runAsPlugin = function (sel, args){
+		var query = sel.pluginQuery;
+		var role = sel.pluginRole;
+		var fname = sel.pluginFnName;
+		
+		var argstr = '';
+		if(args.length > 1)
+		for(i = 1, len = args.length; i < len; i++){
+			//fargs[fargs.length] = args[i];
+			argstr = argstr + ', args['+i+']';
+		}
+		var str = '$("'+query+'").'+role+'("'+fname+'"' + argstr + ');';
+		
+		eval('var result = '+str);
+		return result;
+	};
+	var runAsEval = function (sel, args){
 		//
 		var sel = args[0];
 		var fname = args[1];
@@ -146,14 +181,20 @@
 			//alert(i+','+arguments[i]);
 			fargs[fargs.length] = args[i];
 		}
-		
-		var win = getWin(sel);
-		(win.jQuery[NAMESPACE].runFn)(fname, fargs);
+		try{
+			var result;
+			eval('result = window.'+fname+'.apply(this, fargs);');
+			return result;
+		}catch(e){
+			try{
+				eval(fname);
+			}catch(e){
+				var err = "error when running: \"" + window.location.href + '\" '+fname+'();';
+				throw err;
+			}
+		}
 	};
-	var runFn = function (fname, args){
-		eval('window.'+fname+'.apply(this, args);');
-	}
-	me.runFn = runFn;
+	
 	var getChildWin = function (query){
 		var ARROW = '->';
 		var arr = query.split(ARROW);
