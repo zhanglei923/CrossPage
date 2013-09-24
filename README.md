@@ -46,7 +46,7 @@ Get window object by selector:
                 ,page: "#1b -> #2a -> #3b -> #4a"
         });
         
-Get an iframe object by selector:
+Get an iframe object by selector from an iframe somewhere:
         
         $.crosspage.getFrame("parent");
         $.crosspage.getFrame("self");
@@ -69,4 +69,34 @@ Get an iframe object by selector:
                 from: "top"
                 ,page: "#1b -> #2a -> #3b -> #4a"
         });
+
+How to implement a function of an iframe somewhere:
+
+        $.crosspage.run({page: '../', iframe:'#right -> #north'}, 'saveUser', userData);
+        $.crosspage.run({page: '../', iframe:'#right -> #middle'}, 'util.saveUser', userData);
+        $.crosspage.run({
+                        page: '../'
+                        ,iframe:'#right -> #south'
+                        ,pluginQuery: "#usergrid"
+                        ,pluginRole: "datagrid"
+                        ,pluginFnName: "appendRow"
+                }
+                , userData
+        );
+        
+How to broadcast event to iframes:
+
+1, bind event in each local pages:
+        $.crosspage.bindEvent('myEvent', function (){
+                alert('red alarm!');
+        });
+
+2, you can also clean event handle functions:
+
+        $.crosspage.cleanEvent('myEvent');
+
+3, broadcast:
+
+        $.crosspage.broadcast('myEvent');//all iframes from top will trigger this event
+        $.crosspage.broadcast({page: '../', iframe:'#right -> #north'}, 'myEvent');//trigger this event begin in an assigned iframe
 
