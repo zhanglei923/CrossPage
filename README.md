@@ -46,7 +46,7 @@ Get window object by selector:
                 ,page: "#1b -> #2a -> #3b -> #4a"
         });
         
-Get an iframe object by selector from an iframe somewhere:
+Get an iframe object by selector from assigned iframe:
         
         $.crosspage.getFrame("parent");
         $.crosspage.getFrame("self");
@@ -70,7 +70,7 @@ Get an iframe object by selector from an iframe somewhere:
                 ,page: "#1b -> #2a -> #3b -> #4a"
         });
 
-How to implement a function of an iframe somewhere:
+Implement a method in assigned iframe:
 
         $.crosspage.run({page: '../', iframe:'#right -> #north'}, 'saveUser', userData);
         $.crosspage.run({page: '../', iframe:'#right -> #middle'}, 'util.saveUser', userData);
@@ -84,7 +84,7 @@ How to implement a function of an iframe somewhere:
                 , userData
         );
         
-How to broadcast event to iframes:
+Broadcast event between iframes:
 
 1, bind event in each local pages:
         $.crosspage.bindEvent('myEvent', function (){
