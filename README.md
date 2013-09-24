@@ -86,17 +86,18 @@ Implement a method in assigned iframe:
         
 Broadcast event between iframes:
 
-1, bind event in each local pages:
+1, bind event handles in each local pages:
+
         $.crosspage.bindEvent('myEvent', function (){
                 alert('red alarm!');
         });
 
-2, you can also clean event handle functions:
+2, or, clean them:
 
         $.crosspage.cleanEvent('myEvent');
 
-3, broadcast:
+3, broadcast(trigger) an event to frames:
 
-        $.crosspage.broadcast('myEvent');//all iframes from top will trigger this event
-        $.crosspage.broadcast({page: '../', iframe:'#right -> #north'}, 'myEvent');//trigger this event begin in an assigned iframe
+        $.crosspage.broadcast('myEvent');//all iframes including 'top' will trigger this event
+        $.crosspage.broadcast({page: '../', iframe:'#right -> #north'}, 'myEvent');//trigger this event begin from an assigned iframe
 
