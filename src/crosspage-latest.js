@@ -1,7 +1,7 @@
 /* 
- * CrossPage 0.2
+ * CrossPage 0.3
  * https://github.com/zhanglei923/CrossPage/
- * Date: 2013-09-24 
+ * Date: 2013-09-25 
  * 
  * Copyright (c) 2013 ZhangLei
  * 
@@ -132,11 +132,12 @@
 	}
 	var foreachFrame = function (fn){
 		var list = document.getElementsByTagName("iframe");
+		var err = false;
 		for(var i = 0, len = list.length; i < len; i++){
 			try{
 				(fn)( list[i] );
 			}catch(e){
-				throw new Error("foreachFrame(): cross domain");
+				//do not throw error, will block for looping which it should NOT
 			}
 		}
 	};
