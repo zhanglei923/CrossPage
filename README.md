@@ -46,7 +46,7 @@ Get window object by selector:
                 ,iframe: "#1b -> #2a -> #3b -> #4a"
         });
         
-Get an iframe object by selector from assigned iframe:
+Get iframe object by selector of assigned iframe:
         
         $.crosspage.getFrame("parent");
         $.crosspage.getFrame("self");
