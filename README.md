@@ -69,6 +69,13 @@ Get iframe object by selector of assigned iframe:
                 page: "top"
                 ,iframe: "#1b -> #2a -> #3b -> #4a"
         });
+        
+Change url:
+
+        $.crosspage.setSrc({ 
+                page: "top"
+                ,iframe: "#1b -> #2a -> #3b -> #4a"
+        }, 'http://my-url.com');
 
 ### Run
 
