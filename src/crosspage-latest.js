@@ -1,5 +1,5 @@
 /* 
- * CrossPage 0.3
+ * CrossPage 0.4
  * https://github.com/zhanglei923/CrossPage/
  * Date: 2013-09-25 
  * 
@@ -40,8 +40,7 @@
 	};
 	var getKey = function (){
 		return KEY;
-	}
-	me.getKey = getKey;
+	}	
 	
 	var getFrameByKey = function (key){
 		var frame;
@@ -53,7 +52,6 @@
 		});
 		return frame;
 	}
-	me.getFrameByKey = getFrameByKey;
 	
 	var getFrameByWin = function (win){
 		try{
@@ -85,6 +83,10 @@
 			var win = getWinOld(con, page);
 			return getFrameByWin(win); 
 		}
+	};
+	var setSrc = function (sel, src){
+		var f = getFrame(sel);
+		if(f)f.src = src;
 	};
 	
 	var getWin = function (sel){
@@ -153,7 +155,6 @@
 			return runAsEval(sel, args);
 		}
 	};
-	me.runFn = runFn;
 	
 	var runAsPlugin = function (sel, args){
 		var query = sel.pluginQuery;
@@ -286,7 +287,6 @@
 				}
 			});
 		};
-		me.broadcastImpl = broadcastImpl;
 	}
 	
 	{
@@ -311,10 +311,18 @@
 	me.getChildWin = getChildWin;
 	me.foreachFrame = foreachFrame;
 	me.getDepth = getDepth;
+	
 	me.broadcast = broadcast;
+	me.broadcastImpl = broadcastImpl;
 	me.run = run;
+	me.runFn = runFn;
 	
 	me.bindEvent = bindEvent;
 	me.fireEvent = fireEvent;
 	me.cleanEvent = cleanEvent;
+	
+	me.getFrameByKey = getFrameByKey;
+	me.getKey = getKey;
+	
+	me.setSrc = setSrc;
 })(jQuery);
