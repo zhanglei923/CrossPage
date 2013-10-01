@@ -19,6 +19,23 @@ Download latest code and include it into your pages:
 API
 =======
 
+Selector:
+
+        'top'
+        'parent'
+        'self'
+        './'
+        '//'
+        '../'
+        '../../'
+        -------------------
+        '#f0 -> #f1 -> #f2'
+        -------------------
+        {page:'top'}
+        {page:'top', iframe:'#f1'}
+        {page:'top', iframe:'#f0 -> #f1 -> #f2'}
+        {page:'../../', iframe:'#f0 -> #f1 -> #f2'}
+
 
 ### Query
 Get window object by selector:
@@ -81,19 +98,26 @@ Change url:
 
 Implement a method in assigned iframe:
 
-        $.crosspage.run({page: '../', iframe:'#right -> #north'}, 'saveUser', userData);
-        $.crosspage.run({page: '../', iframe:'#right -> #middle'}, 'util.saveUser', userData);
-        $.crosspage.run({
-                        page: '../'
-                        ,iframe: '#right -> #south'
-                        ,pluginQuery: "#usergrid"
-                        ,pluginRole: "datagrid"
-                        ,pluginFnName: "appendRow"
-                }
-                , userData
-        );
+        $.crosspage.run(Selector, 'fnName');
+        $.crosspage.run(Selector, 'fnName', arg0, arg1, arg2, ...);
+        $.crosspage.run(Selector, 'fnName', [arg0, arg1, arg2, ... ]);
+        $.crosspage.run(Selector, 'fnName', arg0, arg1);
+        $.crosspage.run(Selector, {fnName: 'fnName', params:[arg0, arg1, arg2, ...]});
+
+
+Broadcast:
+
+        $.crosspage.bindEvent('myEvent', function (){
+                alert('red alarm!');
+        });
         
-        
+        $.crosspage.cleanEvent('myEvent');
+        $.crosspage.broadcast('myEvent');
+        $.crosspage.broadcast(Selector, 'myEvent');
+
+Src:
+        $.crosspage.setSrc(Selector, 'http://my-url.com');
+
 ### Broadcast
 
 Broadcast event between iframes:
