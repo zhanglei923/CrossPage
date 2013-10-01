@@ -20,6 +20,7 @@ API
 =======
 
 Selector:
+A selector is the indicator to find the target page as the implementation context.
 
         'top'
         'parent'
