@@ -22,20 +22,20 @@ API
 ### Selector:
 A selector is the indicator to find the target page as the implementation context.
 
-        'top'
-        'parent'
-        'self'
-        './'
-        '//'
-        '../'
-        '../../'
+        'top'               //top page
+        'parent'            //parent page
+        'self'              //current page
+        './'                //equals 'self'
+        '//'                //equals 'top'
+        '../'               //equals 'parent'
+        '../../'            //parent's parent
         -------------------
-        '#f0 -> #f1 -> #f2'
+        '#f0 -> #f1 -> #f2' //deeply find child iframe of each page devide by '->' 
         -------------------
-        {page:'top'}
-        {page:'top', iframe:'#f1'}
-        {page:'top', iframe:'#f0 -> #f1 -> #f2'}
-        {page:'../../', iframe:'#f0 -> #f1 -> #f2'}
+        {page:'top'}        //top page
+        {page:'top', iframe:'#f1'}                  //find #f1 in top
+        {page:'top', iframe:'#f0 -> #f1 -> #f2'}    //deeply find child iframe by '->' indicator started from top page.
+        {page:'../../', iframe:'#f0 -> #f1 -> #f2'} //deeply find child iframe by '->' indicator started from parent's parent page.
 
 
 ### Query
