@@ -19,7 +19,7 @@ Download latest code and include it into your pages:
 API
 =======
 
-Selector:
+### Selector:
 A selector is the indicator to find the target page as the implementation context.
 
         'top'
