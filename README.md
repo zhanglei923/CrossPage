@@ -17,12 +17,39 @@ How to use:
 Make sure ALL of your iframe pages included this file, then have try the power of cross page!
 
         <script src="/crosspage-latest.min.js"></script>
+        
 
 
 API
 =======
 
-### Selector:
+### Invoke
+
+Invoke function from a target iframe assigned by selector(see 'selector' below for details):
+
+        $.crosspage.run(Selector, 'fnName');
+        $.crosspage.run(Selector, 'fnName', arg0, arg1, arg2, ...);
+        $.crosspage.run(Selector, 'fnName', [arg0, arg1, arg2, ... ]);
+        $.crosspage.run(Selector, 'fnName', arg0, arg1);
+        $.crosspage.run(Selector, {fnName: 'fnName', params:[arg0, arg1, arg2, ...]});
+
+
+Broadcast:
+
+        $.crosspage.bindEvent('myEvent', function (){
+                alert('red alarm!');
+        });
+        
+        $.crosspage.cleanEvent('myEvent');
+        $.crosspage.broadcast('myEvent');
+        $.crosspage.broadcast(Selector, 'myEvent');
+
+### Set url:
+        
+        $.crosspage.setSrc(Selector, 'http://my-url.com');
+
+
+### Selector defination:
 A selector is the indicator to find the target page as the implementation context.
 
         'top'               //top page
@@ -41,8 +68,8 @@ A selector is the indicator to find the target page as the implementation contex
         {page:'../../', iframe:'#f0 -> #f1 -> #f2'} //deeply find child iframe by '->' indicator started from parent's parent page.
 
 
-### Query
-Get window object by selector:
+### Get object
+Get target frame window by selector:
 
         $.crosspage.getWin("top");
         $.crosspage.getWin("parent");
@@ -97,30 +124,6 @@ Change url:
                 page: "top"
                 ,iframe: "#1b -> #2a -> #3b -> #4a"
         }, 'http://my-url.com');
-
-### Run
-
-Implement a method in assigned iframe:
-
-        $.crosspage.run(Selector, 'fnName');
-        $.crosspage.run(Selector, 'fnName', arg0, arg1, arg2, ...);
-        $.crosspage.run(Selector, 'fnName', [arg0, arg1, arg2, ... ]);
-        $.crosspage.run(Selector, 'fnName', arg0, arg1);
-        $.crosspage.run(Selector, {fnName: 'fnName', params:[arg0, arg1, arg2, ...]});
-
-
-Broadcast:
-
-        $.crosspage.bindEvent('myEvent', function (){
-                alert('red alarm!');
-        });
-        
-        $.crosspage.cleanEvent('myEvent');
-        $.crosspage.broadcast('myEvent');
-        $.crosspage.broadcast(Selector, 'myEvent');
-
-Src:
-        $.crosspage.setSrc(Selector, 'http://my-url.com');
 
 ### Broadcast
 
