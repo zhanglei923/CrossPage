@@ -13,7 +13,7 @@ MIT: [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.
 
 How to use:
 =======
-Download latest code and include it into your pages, and make sure ALL of your iframe pages included this file:
+Make sure ALL of your iframe pages included this file, then have try the power of cross page!
 
         <script src="/crosspage-latest.min.js"></script>
 
