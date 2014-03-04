@@ -27,22 +27,29 @@ API
 
 Invoke function from a target iframe assigned by selector(see 'selector' below for details):
 
-        $.crosspage.run(Selector, 'fnName');
-        $.crosspage.run(Selector, 'fnName', arg0, arg1, arg2, ...);
-        $.crosspage.run(Selector, 'fnName', [arg0, arg1, arg2, ... ]);
-        $.crosspage.run(Selector, 'fnName', arg0, arg1);
-        $.crosspage.run(Selector, {fnName: 'fnName', params:[arg0, arg1, arg2, ...]});
+        var result = $.crosspage.run(Selector, 'fnName');
+        var result = $.crosspage.run(Selector, 'fnName', arg0, arg1, arg2, ...);
+        var result = $.crosspage.run(Selector, 'fnName', [arg0, arg1, arg2, ... ]);
+        var result = $.crosspage.run(Selector, 'fnName', arg0, arg1);
+        var result = $.crosspage.run(Selector, {fnName: 'fnName', params:[arg0, arg1, arg2, ...]});
 
 
-Broadcast:
-
+Broadcast an event:
+        
+        //bind a function to an event name
         $.crosspage.bindEvent('myEvent', function (){
                 alert('red alarm!');
         });
         
-        $.crosspage.cleanEvent('myEvent');
+        //broadcast this event from any iframe, pages with this event defination will be triggered. 
         $.crosspage.broadcast('myEvent');
+        
+        //or you can broadcast to assigned frames by using selector
         $.crosspage.broadcast(Selector, 'myEvent');
+        
+        //clean
+        $.crosspage.cleanEvent('myEvent');
+        
 
 ### Set url:
         
@@ -50,7 +57,7 @@ Broadcast:
 
 
 ### Selector defination:
-A selector is the indicator to find the target page as the implementation context.
+A selector is a path indication to get the target page.
 
         'top'               //top page
         'parent'            //parent page
