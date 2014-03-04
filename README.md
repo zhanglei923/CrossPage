@@ -1,6 +1,6 @@
 About
 =======
-CrossPage is a jQuery plugin focusing on cross-iframe function invoking.
+CrossPage is a jQuery plugin focusing on invoke functions between nested iframes.
 
 Browser Support: IE6+, FireFox, Chrome, Opera, Safari and more.
 
