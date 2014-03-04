@@ -101,7 +101,7 @@ Get target frame window by selector:
                 ,iframe: "#1b -> #2a -> #3b -> #4a"
         });
         
-Get iframe object by selector of assigned iframe:
+Get iframe object by selector:
         
         $.crosspage.getFrame("parent");
         $.crosspage.getFrame("self");
@@ -136,17 +136,17 @@ Change url:
 
 Broadcast event between iframes:
 
-1, bind event handles in each local pages:
+1, bind event handles in page:
 
         $.crosspage.bindEvent('myEvent', function (){
                 alert('red alarm!');
         });
 
-2, or, clean them:
+2, you can also clean them if you don not need anymore:
 
         $.crosspage.cleanEvent('myEvent');
 
-3, broadcast(trigger) an event to frames:
+3, broadcast event to frames:
 
         //all iframes including 'top' will trigger this event
         $.crosspage.broadcast('myEvent');
