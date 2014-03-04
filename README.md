@@ -41,7 +41,7 @@ Broadcast an event:
                 alert('red alarm!');
         });
         
-        //broadcast this event from any iframe, pages with this event defination will be triggered. 
+        //broadcast this event to frames, iframe page which has this event binding will be triggered. 
         $.crosspage.broadcast('myEvent');
         
         //or you can broadcast to assigned frames by using selector
