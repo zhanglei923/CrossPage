@@ -3,7 +3,7 @@ About
 
 If your page is made by iframes or including iframe page, you can use CrossPage to simplify your developing which can let your function invoking as easy as in one single page.
 
-CrossPage is ok to work in nested iframes, it's another useful ability is to broadcast customized events from one frame to other frames, no matter how deep it is.
+CrossPage is designed to work in nested iframes, it's another useful ability is to broadcast customized events from one frame to other frames, no matter how deep it is.
 
 Browser Support: IE6+, FireFox, Chrome, Opera, Safari and more.
 
