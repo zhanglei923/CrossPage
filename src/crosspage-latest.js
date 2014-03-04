@@ -1,9 +1,9 @@
 /* 
- * CrossPage 0.5
+ * CrossPage 0.51
  * https://github.com/zhanglei923/CrossPage/
- * Date: 2013-10-01 
+ * Date: 2014-03-04 
  * 
- * Copyright (c) 2013 ZhangLei
+ * Copyright (c) 2014 ZhangLei
  * 
  * Author: ZhangLei
  * Homepage: https://github.com/zhanglei923 
@@ -568,36 +568,4 @@
 	me.getKey = getKey;
 	
 	me.setSrc = setSrc;
-})(jQuery);
-/////////////////////////////////////////////////////////////////
-//for GSP6
-(function($) {
-	var NAMESPACE = 'crossgsp';
-	
-	var me = $[NAMESPACE] = {};
-	
-	me.invoke = function (sel, info){
-		$.crosspage.run(sel, '$.crossgsp.onInvoke', info);
-    	
-	}
-	/**
-	 * EXAMPLE:
-	 * 
-	 *$("#goldCardPage").data("viewInstance").context.invoke({
-        target: "goalCardController",
-        methodName: "remove",
-        params: ["param1", "param2"]
-    });
-	 * 
-	 * 
-	 */
-	me.onInvoke = function (info){
-		if(typeof info == 'undefined' || !info) return;
-
-		$(info.id).data("viewInstance").context.invoke({
-            target: info.target,
-            methodName: info.methodName,
-            params: info.params
-        });
-	}
 })(jQuery);
