@@ -2,7 +2,7 @@ About
 =======
 CrossPage is a jQuery plugin focusing on invoke functions between nested iframes, it's another useful ability is broadcast customized events cross iframes.
 
-The goal of CrossPage is to let your iframe making page feels like one single page.
+If your page is made by iframes or including iframe page, you can use CrossPage to simplify your developing which can let your function invoking as easy as in one single page.
 
 Browser Support: IE6+, FireFox, Chrome, Opera, Safari and more.
 
