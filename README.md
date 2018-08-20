@@ -1,3 +1,5 @@
+## THIS LIB IS OLD FASHION AND DEPRACATED, PLS USE "PostMessage()" INSTEAD OF IT.
+
 About
 =======
 
