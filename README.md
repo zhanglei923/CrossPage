@@ -1,4 +1,5 @@
 ## THIS LIB IS OLD FASHION AND DEPRACATED, PLS USE "PostMessage()" INSTEAD OF IT.
+## OR, WAIT FOR 'Messenger.js', A NEW GENERATION EVENT-BUS.
 
 About
 =======
@@ -64,9 +65,9 @@ A selector is a path indication to get the target page.
         'top'               //top page
         'parent'            //parent page
         'self'              //current page
-        './'                //equals 'self'
-        '//'                //equals 'top'
-        '../'               //equals 'parent'
+        './'                //equals to 'self'
+        '//'                //equals to 'top'
+        '../'               //equals to 'parent'
         '../../'            //parent's parent
         -------------------
         '#f0 -> #f1 -> #f2' //deeply find child iframe of each page devide by '->' 
