@@ -1,5 +1,5 @@
 ## THIS LIB IS OLD FASHION AND DEPRACATED, PLS USE "PostMessage()" INSTEAD OF IT.
-## OR, WAIT FOR 'Messenger.js', A NEW GENERATION EVENT-BUS.
+## OR, WAIT FOR 'Messenger.js'(https://github.com/zhanglei923/messenger.js), A NEW GENERATION EVENT-BUS.
 
 About
 =======
