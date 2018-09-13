@@ -1,5 +1,4 @@
-## THIS LIB IS OLD FASHION AND DEPRACATED, PLS USE "PostMessage()" INSTEAD OF IT.
-## OR, WAIT FOR 'Messenger.js'(https://github.com/zhanglei923/messenger.js), A NEW GENERATION EVENT-BUS.
+## THIS LIB IS DEPRACATED, PLS USE "PostMessage()" or 'Messenger.js'(https://github.com/zhanglei923/messenger.js) INSTEAD.
 
 About
 =======
